@@ -173,11 +173,11 @@ int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat)
     mdec->y = mdec->buf[2];
     if ((mdec->buf[0] & 0x10) != 0)
     {
-      mdec->x |= 0xffffff00;
+      mdec->x |= 0xffffff00;  // マイナス（左）方向の場合のみ行う
     }
     if (mdec->buf[0] & 0x20 != 0)
     {
-      mdec->y |= 0xffffff00;
+      mdec->y |= 0xffffff00;  // マイナス（下）方向の場合のみ行う
     }
     mdec->y = - mdec->y;  // マウスではy方向の符号が画面と反対
     return 1;

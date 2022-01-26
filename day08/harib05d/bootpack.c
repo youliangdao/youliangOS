@@ -70,7 +70,7 @@ void HariMain(void)
 	      i = fifo8_get(&keyfifo);
 	      io_sti();
       
-	      sprintk(s, "%02x", i);
+	      sprintk(s, "%02X", i);
 	      boxfill8(binfo->vram, binfo->scrnx, COL8_008484, 0, 16, 15, 31);
 	      putfont8_asc(binfo->vram, binfo->scrnx, 0, 16, COL8_FFFFFF, s);
       } else if (fifo8_status(&mousefifo) != 0) {
@@ -199,7 +199,7 @@ int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat)
     {
       mdec->x |= 0xffffff00;
     }
-    if (mdec->buf[0] & 0x20 != 0)
+    if ((mdec->buf[0] & 0x20) != 0)
     {
       mdec->y |= 0xffffff00;
     }

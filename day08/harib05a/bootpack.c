@@ -64,7 +64,7 @@ void HariMain(void)
 	      i = fifo8_get(&keyfifo);
 	      io_sti();
       
-	      sprintk(s, "%02x", i);
+	      sprintk(s, "%02X", i);
 	      boxfill8(binfo->vram, binfo->scrnx, COL8_008484, 0, 16, 15, 31);
 	      putfont8_asc(binfo->vram, binfo->scrnx, 0, 16, COL8_FFFFFF, s);
       } else if (fifo8_status(&mousefifo) != 0) {
@@ -89,7 +89,7 @@ void HariMain(void)
 	        mouse_dbuf[2] = i;
 	        mouse_phase = 1;
 	        /* データが3バイト揃ったので表示 */
-	        sprintk(s, "%02x %02x %02x", mouse_dbuf[0], mouse_dbuf[1], mouse_dbuf[2]);
+	        sprintk(s, "%02X %02X %02X", mouse_dbuf[0], mouse_dbuf[1], mouse_dbuf[2]);
 	        boxfill8(binfo->vram, binfo->scrnx, COL8_008484, 32, 16, 32 + 8 * 8 - 1, 31);
 	        putfont8_asc(binfo->vram, binfo->scrnx, 32, 16, COL8_FFFFFF, s);
 	      }
