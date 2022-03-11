@@ -216,6 +216,7 @@ farjmp:	# void farjmp(int eip, int cs);
 	ret
 
 asm_cons_putchar:
+	sti
 	pushl $1
 	andl $0xff, %eax
 	pushl %eax
