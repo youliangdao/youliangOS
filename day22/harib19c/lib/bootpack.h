@@ -44,6 +44,7 @@ void asm_inthandler0d(void);
 void asm_inthandler0c(void);
 void asm_cons_putchar(void);
 void asm_hrb_api(void);
+void asm_end_app(void);
 
 void taskswitch4(void);
 void taskswitch3(void);

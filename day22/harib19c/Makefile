@@ -4,7 +4,7 @@ TARGET = haribote.img
 
 all : $(TARGET)
 
-$(TARGET) : ipl.bin haribote.sys hello.hrb hello2.hrb hello3.hrb bug1.hrb
+$(TARGET) : ipl.bin haribote.sys hello.hrb hello2.hrb hello3.hrb bug1.hrb bug2.hrb
 		mformat -f 1440 -C -B ipl.bin -i $(TARGET) ::
 		mcopy haribote.sys -i $(TARGET) ::
 		mcopy src/asm/boot/ipl10.s -i $(TARGET) ::
@@ -13,6 +13,7 @@ $(TARGET) : ipl.bin haribote.sys hello.hrb hello2.hrb hello3.hrb bug1.hrb
 		mcopy hello2.hrb -i $(TARGET) ::
 		mcopy hello3.hrb -i $(TARGET) ::
 		mcopy bug1.hrb -i $(TARGET) ::
+		mcopy bug2.hrb -i $(TARGET) ::
 
 ipl.bin : src/asm/boot/ipl10.s
 		$(CC) -nostdlib src/asm/boot/ipl10.s -o ipl.bin -T scripts/binary.ld
@@ -37,6 +38,9 @@ hello3.hrb : src/app/hello3.c src/app/a_nask.s
 
 bug1.hrb : src/app/bug1.c src/app/a_nask.s
 		$(CC) -march=i486 -m32 -fno-pic -nostdlib src/app/bug1.c src/app/a_nask.s -o bug1.hrb -T scripts/hrb.ld
+
+bug2.hrb : src/app/bug2.c
+		$(CC) -march=i486 -m32 -fno-pic -nostdlib src/app/bug2.c -o bug2.hrb -T scripts/hrb.ld
 
 run : $(TARGET)
 		qemu-system-i386 -fda $(TARGET) -boot a
