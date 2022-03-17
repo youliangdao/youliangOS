@@ -292,7 +292,7 @@ void HariMain(void)
           fifo32_put(&keycmd, KEYCMD_LED);
           fifo32_put(&keycmd, key_leds);
         }
-        if (i == 256 + 0x0f && key_shift != 0 && task_cons->tss.ss0 != 0) // Shift + F1
+        if (i == 256 + 0x0f && key_shift != 0 && task_cons->tss.ss0 != 0) // Shift + Tab（テキストではShift + F1だがうまく行かないので修正）
         {
           cons = (struct CONSOLE *)*((int *) 0x0fec);
           cons_putstr0(cons, "\nBreak(key) : \n");
