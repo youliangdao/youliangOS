@@ -30,8 +30,9 @@ $(TARGET) : ipl.bin haribote.sys hello.hrb hello2.hrb hello3.hrb hello4.hrb hell
 		mcopy color2.hrb -i $(TARGET) ::
 		mcopy typeipl.hrb -i $(TARGET) ::
 		mcopy type.hrb -i $(TARGET) ::
-		mcopy nihongo.fnt -i $(TARGET) ::
 		mcopy iroha.hrb -i $(TARGET) ::
+		mcopy nihongo.fnt -i $(TARGET) ::
+
 
 ipl.bin : src/asm/boot/ipl10.s
 		$(CC) -nostdlib src/asm/boot/ipl10.s -o ipl.bin -T scripts/binary.ld

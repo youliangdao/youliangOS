@@ -242,7 +242,7 @@ void init_mouse_cursor8(char *mouse, char bc);
 void boxfill8(unsigned char *vram, int xsize, unsigned char c, int x0, int y0, int x1, int y1);
 void putblock8_8(unsigned char *vram, int vxsize, int pxsize, int pysize, int px0, int py0, char *buf, int bxsize);
 void putfont8(unsigned char *vram, int xsize, int x, int y, char c, char *font);
-void putfonts8_asc(unsigned char *vram, int xsize, int x, int y, char c, char *s);
+void putfonts8_asc(unsigned char *vram, int xsize, int x, int y, char c, unsigned char *s);
 void putfonts8_asc_sht(struct SHEET *sht, int x, int y, int c, int b, char *s, int l);
 
 void init_screen8(unsigned char *vram, int xsize, int ysize);

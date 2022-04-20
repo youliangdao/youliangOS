@@ -146,7 +146,7 @@ void HariMain(void)
     }
     
   }
-  *((int *)0x0fe8) = (int)nihongo;
+  *((int *)0x0fe8) = (int) nihongo;
   memman_free_4k(memman, (int)fat, 4 * 2880);
   
   for (;;)
