@@ -166,7 +166,7 @@ void putfont8(unsigned char *vram, int xsize, int x, int y, char c, char *font)
     return;
 }
 
-void putfonts8_asc(unsigned char *vram, int xsize, int x, int y, char c, char *s)
+void putfonts8_asc(unsigned char *vram, int xsize, int x, int y, char c, unsigned char *s)
 {
     extern char hankaku[4096];
     struct TASK *task = task_now();
