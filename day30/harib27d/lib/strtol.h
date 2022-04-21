@@ -1,0 +1,1 @@
+int strtol(char *s, char **endp, int base);
